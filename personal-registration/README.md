@@ -1,60 +1,73 @@
 
-Cadastro Pessoal - Aplicação Multicontainer
-Este projeto é uma aplicação multicontainer baseada em Go para cadastro pessoal, utilizando Docker e PostgreSQL.
+# Personal Registration - Multicontainer Application
 
-Pré-requisitos
-Antes de começar, certifique-se de ter o seguinte instalado em sua máquina:
+This project is a multicontainer Go-based application for personal registration, using Docker and PostgreSQL.
 
-Docker
-Docker Compose
-Estrutura do Projeto
-.docker/: Contém o Dockerfile e outras configurações para construir o container da API.
-.env: Arquivo de ambiente para armazenar informações sensíveis, como credenciais do banco de dados.
-main.go: Ponto de entrada da aplicação Go.
-src/: Código-fonte da aplicação, incluindo conexão e lógica do banco de dados.
-Configuração e Execução
-Clone o Repositório:
+## Prerequisites
 
-bash
-Copy code
-git clone <repository-url>
-cd personal-registration
-Configure as Variáveis de Ambiente:
+Before you begin, ensure you have the following installed on your machine:
 
-Atualize o arquivo .env com os seguintes valores:
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
-env
-Copy code
-DB_HOST=database
-DB_PORT=5432
-DB_USER=seu_usuario
-DB_PASSWORD=sua_senha
-DB_NAME=nome_do_seu_banco
-Construa e Execute os Containers:
+## Project Structure
 
-Use o Docker Compose para construir e iniciar os containers:
+- `.docker/`: Contains the Dockerfile and the docker-compose.
+- `.env`: contains the environment variables.
+- `main.go`: Entry point for the Go application.
+- `src/`: Source code for the application, including database connection and logic.
 
-bash
-Copy code
-docker-compose up --build
-Este comando irá:
+## Setup and Run
 
-Construir o container da API a partir do Dockerfile localizado em .docker/Dockerfile.api.
-Iniciar um container PostgreSQL com o banco de dados inicializado a partir de src/connection/init.sql.
-Acesse a API:
+1. **Clone the Repository**:
 
-A API estará acessível em http://localhost:8000.
+   ```bash
+   git clone <https://github.com/Lutero95/personal-registration.git>
 
-Solução de Problemas
-Porta Já em Uso: Se encontrar um erro de alocação de porta, certifique-se de que as portas 5432 (PostgreSQL) e 8000 (API) não estão sendo usadas por outras aplicações.
-Problemas de Conexão com o Banco de Dados: Verifique se as variáveis de ambiente no arquivo .env correspondem à configuração do banco de dados.
-Desenvolvimento
-Para executar a aplicação Go localmente sem Docker:
+   cd personal-registration
+   ```
 
-Configure uma instância local do PostgreSQL e atualize o arquivo .env conforme necessário.
+2. **Set Up Environment Variables**:
 
-Execute a aplicação utilizando:
+   Update the `.env` file with the following values:
 
-bash
-Copy code
-go run main.go
+   ```env
+   DB_HOST=database
+   DB_PORT=5432(or another port)
+   DB_USER=your_user
+   DB_PASSWORD=your_password
+   DB_NAME=your_database_name
+   ```
+
+3. **Build and Run Containers**:
+
+   Use Docker Compose to build and start the containers:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   This command will:
+
+    - Build the API container from the Dockerfile located in `.docker/Dockerfile.api`.
+    - Start a PostgreSQL container with the database initialized from `src/connection/init.sql`.
+
+4. **Access the API**:
+
+   The API will be accessible at `http://localhost:8000`.
+
+## Troubleshooting
+
+- **Port Already in Use**: If you encounter a port allocation error, ensure that ports `5432` (PostgreSQL) and `8000` (API) are not being used by other applications.
+- **Database Connection Issues**: Verify that the environment variables in `.env` match the database configuration.
+
+## Development
+
+To run the Go application locally without Docker:
+
+1. Set up a local PostgreSQL instance and update the `.env` file accordingly.
+2. Run the application using:
+
+   ```bash
+   go run main.go
+   ```
