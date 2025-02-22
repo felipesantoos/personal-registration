@@ -25,10 +25,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Generate Docker tag
+        id: generate_tag
+        run: echo "sha=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:${{ steps.generate_tag.outputs.sha }} -f personal-registration/.docker/Dockerfile.api .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:${{ steps.generate_tag.outputs.sha }}
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:${{ env.sha }} -f personal-registration/.docker/Dockerfile.api .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:${{ env.sha }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -42,7 +46,7 @@ jobs:
           password: ${{ secrets.PASSWORD_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           script: |
             # Extract the tag on job build
-              TAG=${{ needs.build.outputs.docker_tag }}
+              TAG=$${{ env.sha }}
               # Create env file
               [ -e .env ] && rm .env
               touch .env
