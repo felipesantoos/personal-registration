@@ -22,7 +22,7 @@ jobs:
 
       - name: Build and Test
         run: |
-          go build -o personal-registration ./...
+          go build -o personal-registration ./main.go
           go test -race -covermode=atomic -coverprofile=coverage.out ./...
 
       - name: Set up Docker Buildx
