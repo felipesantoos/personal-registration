@@ -5,7 +5,7 @@ services:
     container_name: personal-registration
     build:
       context: ../
-      dockerfile: ./Dockerfile.api
+      dockerfile: .docker/Dockerfile.api
     env_file:
       - ../.env
     networks:
