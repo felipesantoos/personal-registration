@@ -3,7 +3,7 @@ version: '3.9'
 services:
   api:
     container_name: personal-registration
-    image: martinholutero1/aula-cid-cd:${DOCKER_IMAGE_TAG}
+    image: martinholutero1/personal-registration:${DOCKER_IMAGE_TAG}
     build:
       context: ../
       dockerfile: .docker/Dockerfile.api
