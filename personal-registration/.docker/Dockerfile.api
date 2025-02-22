@@ -3,17 +3,17 @@ FROM golang:1.22.3
 WORKDIR /usr/src/app
 
 
-COPY personal-registration/go.mod ./
-COPY personal-registration/go.sum ./
+COPY personal-registration/go.mod go.mod
+COPY personal-registration/go.sum go.sum
 RUN go mod download
 
-COPY personal-registration/src ./src
-COPY personal-registration/main.go ./
-COPY personal-registration/.env ./
-COPY personal-registration/request ./request
-COPY personal-registration/response ./response
-COPY personal-registration/routers ./routers
-COPY personal-registration/server ./server
+COPY personal-registration/src src
+COPY personal-registration/main.go main.go
+COPY personal-registration/.env .env
+COPY personal-registration/request request
+COPY personal-registration/response response
+COPY personal-registration/routers routers
+COPY personal-registration/server server
 
 RUN go build -o main .
 
