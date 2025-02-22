@@ -2,8 +2,8 @@ FROM golang:1.22.3
 
 WORKDIR /app
 
-COPY personal-registration/go.mod go.sum ./
-
+COPY personal-registration/go.mod ./
+COPY personal-registration/go.sum ./
 RUN go mod download
 
 COPY personal-registration/src ./src
