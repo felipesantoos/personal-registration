@@ -23,7 +23,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:latest -f personal-registration/.docker/Dockerfile.api .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:latest .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:latest
 
   deploy:
