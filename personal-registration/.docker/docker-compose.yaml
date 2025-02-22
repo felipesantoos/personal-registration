@@ -8,7 +8,7 @@ services:
       context: ../
       dockerfile: .docker/Dockerfile.api
     env_file:
-      - ../.env
+      - .env
     environment:
       - DATABASE_HOST=${DB_HOST}
       - DATABASE_PORT=${DB_PORT}
