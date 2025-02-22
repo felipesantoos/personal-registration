@@ -12,7 +12,7 @@ COPY ./.env ./
 COPY ./request ./request
 COPY ./response ./response
 COPY ./routers ./routers
-COPY ./server ./server
+COPY personal-registration/server ./server
 
 RUN go build -o main .
 
