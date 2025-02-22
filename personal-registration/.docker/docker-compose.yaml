@@ -9,6 +9,11 @@ services:
       dockerfile: .docker/Dockerfile.api
     env_file:
       - ../.env
+    environment:
+      - DATABASE_HOST=${DB_HOST}
+      - DATABASE_PORT=${DB_PORT}
+      - DATABASE_USER=${DB_USER}
+      - DATABASE_PASSWORD=${DB_PASSWORD}
     networks:
       - personal-registration-network
     depends_on:
