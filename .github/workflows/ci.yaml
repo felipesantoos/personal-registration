@@ -31,7 +31,7 @@ jobs:
     needs: build
     steps:
       - name: Deploy to DigitalOcean Droplet
-        uses: appleboy/ssh-action@v0.1.5
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           username: ${{ secrets.USER_DIGITALOCEAN_PERSONAL_REGISTRATION }}
