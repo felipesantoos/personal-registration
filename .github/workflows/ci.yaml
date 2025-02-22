@@ -35,7 +35,7 @@ jobs:
         with:
           host: ${{ secrets.HOST_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           username: ${{ secrets.USER_DIGITALOCEAN_PERSONAL_REGISTRATION }}
-          key: ${{ PASSWORD_DIGITALOCEAN_PERSONAL_REGISTRATION }}
+          key: ${{ secrets.PASSWORD_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           script: |
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:latest
             docker stop personal-registration || true
