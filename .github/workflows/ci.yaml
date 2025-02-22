@@ -1,13 +1,5 @@
 name: CI/CD Pipeline
 
-# Install required build tools and dependencies
-RUN apk add --no-cache bash git gcc musl-dev curl
-
-# Set environment variables
-ENV GOPATH /go
-ENV PATH $PATH:$GOPATH/bin
-ENV DATABASE_SSL_MODE=disable
-
 on:
   push:
     branches:
