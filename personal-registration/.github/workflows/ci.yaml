@@ -25,7 +25,6 @@ jobs:
           go-version: '1.22'
 
       - name: Building and Running Tests
-        working-directory: personal-registration
         run: |
           go mod tidy
           # go test ./... -v
@@ -45,7 +44,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:${{ steps.generate_tag.outputs.sha }} -f personal-registration/.docker/Dockerfile.api .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:${{ steps.generate_tag.outputs.sha }} -f .docker/Dockerfile.api .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/personal-registration:${{ steps.generate_tag.outputs.sha }}
           
   deploy:
@@ -61,7 +60,7 @@ jobs:
           host: ${{ secrets.HOST_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           username: ${{ secrets.USER_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           password: ${{ secrets.PASSWORD_DIGITALOCEAN_PERSONAL_REGISTRATION }}
-          source: "./personal-registration/docker-compose.yml"
+          source: "./docker-compose.yml"
           target: "~/"
           
       - name: Deploy to DigitalOcean Droplet
