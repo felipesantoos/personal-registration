@@ -7,13 +7,13 @@ COPY go.mod go.mod
 COPY go.sum go.sum
 RUN go mod download
 
-COPY src src
-COPY main.go main.go
-COPY .env .env
-COPY request request
-COPY response response
-COPY routers routers
-COPY server server
+COPY ./src src
+COPY ./main.go main.go
+COPY ./.env .env
+COPY ./request request
+COPY ./response response
+COPY ./routers routers
+COPY ./server server
 
 RUN go build -o main .
 
