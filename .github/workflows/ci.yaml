@@ -63,6 +63,7 @@ jobs:
           password: ${{ secrets.PASSWORD_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           source: "./personal-registration/docker-compose.yml"
           target: "~/"
+          
       - name: Deploy to DigitalOcean Droplet
         uses: appleboy/ssh-action@v0.1.3
         with:
