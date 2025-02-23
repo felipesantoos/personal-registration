@@ -55,6 +55,14 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
+      - name: Verify project structure and file existence
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Listing all files:"
+          find .
+          echo "Listing docker-compose files:"
+          find . -name "docker-compose*"
+
       - name: Copy docker-compose file via SSH
         uses: appleboy/scp-action@v0.1.7
         with:
