@@ -55,21 +55,13 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
-      - name: Verify project structure and file existence
-        run: |
-          echo "Current directory: $(pwd)"
-          echo "Listing all files:"
-          find .
-          echo "Listing docker-compose files:"
-          find . -name "docker-compose*"
-
       - name: Copy docker-compose file via SSH
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           username: ${{ secrets.USER_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           password: ${{ secrets.PASSWORD_DIGITALOCEAN_PERSONAL_REGISTRATION }}
-          source: "docker-compose.yml"
+          source: "docker-compose.yaml"
           target: "~/"
 
       - name: Deploy to DigitalOcean Droplet
