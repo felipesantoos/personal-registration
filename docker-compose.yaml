@@ -5,8 +5,8 @@ services:
     container_name: personal-registration
     image: martinholutero1/personal-registration:${DOCKER_IMAGE_TAG}
     build:
-      context: ../
-      dockerfile: .docker/Dockerfile.api
+      context: personal-registration
+      dockerfile: personal-registration/.docker/Dockerfile.api
     env_file:
       .env
     networks:
@@ -29,7 +29,7 @@ services:
       - personal-registration-network
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ../src/connection/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - personal-registration/src/connection/init.sql:/docker-entrypoint-initdb.d/init.sql
 
 networks:
   personal-registration-network:
