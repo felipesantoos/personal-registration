@@ -83,5 +83,7 @@ jobs:
                 echo " No containers to remove"
               fi
               # Run a new container from a new image
+              pwd
+              ls -la
               cd personal-registration/.docker
               docker-compose up -d --build
