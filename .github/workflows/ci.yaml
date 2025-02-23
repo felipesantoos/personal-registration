@@ -85,4 +85,4 @@ jobs:
               # Run a new container from a new image
               pwd
               ls
-              docker-compose up -d --build
+              docker-compose up --build
