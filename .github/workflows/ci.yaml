@@ -83,10 +83,9 @@ jobs:
             # Extract the tag on job build
               TAG=${{ needs.build.outputs.docker_tag }}
               # Create env file
-              [ -e .env ] && rm .env
               touch .env
               chmod 644 .env
-              echo "DOCKER_IMAGE_TAG=$TAG" > .env
+              echo "DOCKER_IMAGE_TAG=$TAG" >> .env
               # Login Docker
               docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
               # Stop Containers
