@@ -27,7 +27,6 @@ jobs:
       - name: Building and Running Tests
         working-directory: personal-registration
         run: |
-          cd personal-registration
           go mod tidy
           # go test ./... -v
 
