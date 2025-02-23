@@ -60,7 +60,7 @@ jobs:
           password: ${{ secrets.PASSWORD_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           script: |
             # Extract the tag on job build
-              TAG=$${{ needs.build.outputs.docker_tag }}
+              TAG=${{ needs.build.outputs.docker_tag }}
               # Create env file
               [ -e .env ] && rm .env
               touch .env
