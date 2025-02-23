@@ -58,6 +58,7 @@ jobs:
           host: ${{ secrets.HOST_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           username: ${{ secrets.USER_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           password: ${{ secrets.PASSWORD_DIGITALOCEAN_PERSONAL_REGISTRATION }}
+          working-directory: personal-registration/.docker
           script: |
             # Extract the tag on job build
               TAG=${{ needs.build.outputs.docker_tag }}
