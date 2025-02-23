@@ -45,5 +45,5 @@ func OpenServerTest() {
 	handler := c.Handler(router)
 
 	println("Servidor ligado na porta :8000!")
-	log.Fatal(http.ListenAndServe(":3001", handler))
+	log.Fatal(http.ListenAndServe(":8000", handler))
 }
