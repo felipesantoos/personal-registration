@@ -83,4 +83,4 @@ jobs:
                 echo " No containers to remove"
               fi
               # Run a new container from a new image
-              docker-compose up -d --build
+              docker-compose -f personal-registration/.docker/docker-compose.yaml up -d --build
