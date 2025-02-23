@@ -61,7 +61,7 @@ jobs:
           host: ${{ secrets.HOST_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           username: ${{ secrets.USER_DIGITALOCEAN_PERSONAL_REGISTRATION }}
           password: ${{ secrets.PASSWORD_DIGITALOCEAN_PERSONAL_REGISTRATION }}
-          source: "../../docker-compose.yml"
+          source: "docker-compose.yml"
           target: "~/"
 
       - name: Deploy to DigitalOcean Droplet
