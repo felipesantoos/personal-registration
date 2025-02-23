@@ -49,8 +49,8 @@ Before you begin, ensure you have the following installed on your machine:
 
    This command will:
 
-   - Build the API container from the Dockerfile located in `.docker/Dockerfile.api`.
-   - Start a PostgreSQL container with the database initialized from `src/connection/init.sql`.
+    - Build the API container from the Dockerfile located in `.docker/Dockerfile.api`.
+    - Start a PostgreSQL container with the database initialized from `src/connection/init.sql`.
 
 4. **Access the API**:
 
