@@ -83,6 +83,7 @@ jobs:
                 echo " No containers to remove"
               fi
               # Run a new container from a new image
+              cd ..
               pwd
               ls -la
               docker-compose -f .docker/docker-compose.yaml up -d --build
